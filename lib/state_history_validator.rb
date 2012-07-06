@@ -8,9 +8,9 @@ class StateHistoryValidator < ActiveModel::Validator
 
     @start = options[:start] || :start
     @end   = options[:end]   || :end
-    @match = options[:match] || []
     @order = options[:order] || "#{@start.to_s} ASC, ISNULL(#{@end}) ASC, #{@end} ASC"
     @allow = options[:allow] || []
+    @match = options[:self_transition_match] || []
   end
 
   def validate(record)

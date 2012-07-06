@@ -17,7 +17,7 @@ class StateHistoryValidatorTest < ActiveSupport::TestCase
       record = Validatable.new(state_history)
       validator = StateHistoryValidator.new(
         :association => :state_history_entries,
-        :match => [:id, :other_id]
+        :self_transition_match => [:id, :other_id]
       )
       validator.validate(record)
 
@@ -38,7 +38,7 @@ class StateHistoryValidatorTest < ActiveSupport::TestCase
         :association => :state_history_entries,
         :start => :begin,
         :end   => :finish,
-        :match => [:id, :other_id]
+        :self_transition_match => [:id, :other_id]
       )
       validator.validate(record)
 
@@ -65,7 +65,7 @@ class StateHistoryValidatorTest < ActiveSupport::TestCase
     should "be invalid with nothing allowed" do
       validator = StateHistoryValidator.new(
         :association => :state_history_entries,
-        :match => [:id, :other_id]
+        :self_transition_match => [:id, :other_id]
       )
       validator.validate(@record)
 
@@ -75,7 +75,7 @@ class StateHistoryValidatorTest < ActiveSupport::TestCase
     should "be valid with :self_transitions allowed" do
       validator = StateHistoryValidator.new(
         :association => :state_history_entries,
-        :match => [:id, :other_id],
+        :self_transition_match => [:id, :other_id],
         :allow => [:self_transitions]
       )
       validator.validate(@record)
@@ -83,7 +83,7 @@ class StateHistoryValidatorTest < ActiveSupport::TestCase
       assert !@record.errors.any?
     end
 
-    should "be valid if no :match is specified and nothing is allowed" do
+    should "be valid if no :self_transition_match is specified and nothing is allowed" do
       validator = StateHistoryValidator.new(
         :association => :state_history_entries
       )
@@ -107,7 +107,7 @@ class StateHistoryValidatorTest < ActiveSupport::TestCase
     should "not be valid with nothing allowed" do
       validator = StateHistoryValidator.new(
         :association => :state_history_entries,
-        :match => [:id]
+        :self_transition_match => [:id]
       )
       validator.validate(@record)
 
@@ -117,7 +117,7 @@ class StateHistoryValidatorTest < ActiveSupport::TestCase
     should "be valid with :last_end_not_nil allowed" do
       validator = StateHistoryValidator.new(
         :association => :state_history_entries,
-        :match => [:id],
+        :self_transition_match => [:id],
         :allow => [:last_end_not_nil]
       )
       validator.validate(@record)
@@ -140,7 +140,7 @@ class StateHistoryValidatorTest < ActiveSupport::TestCase
     should "not be valid with nothing allowed" do
       validator = StateHistoryValidator.new(
         :association => :state_history_entries,
-        :match => [:id]
+        :self_transition_match => [:id]
       )
       validator.validate(@record)
 
@@ -150,7 +150,7 @@ class StateHistoryValidatorTest < ActiveSupport::TestCase
     should "be valid with :overlaps allowed" do
       validator = StateHistoryValidator.new(
         :association => :state_history_entries,
-        :match => [:id],
+        :self_transition_match => [:id],
         :allow => [:overlaps]
       )
       validator.validate(@record)
@@ -172,7 +172,7 @@ class StateHistoryValidatorTest < ActiveSupport::TestCase
     should "not be valid with nothing allowed" do
       validator = StateHistoryValidator.new(
         :association => :state_history_entries,
-        :match => [:id]
+        :self_transition_match => [:id]
       )
       validator.validate(@record)
 
@@ -182,7 +182,7 @@ class StateHistoryValidatorTest < ActiveSupport::TestCase
     should "be valid with :gaps allowed" do
       validator = StateHistoryValidator.new(
         :association => :state_history_entries,
-        :match => [:id],
+        :self_transition_match => [:id],
         :allow => [:gaps]
       )
       validator.validate(@record)
@@ -204,7 +204,7 @@ class StateHistoryValidatorTest < ActiveSupport::TestCase
     should "not be valid with nothing allowed" do
       validator = StateHistoryValidator.new(
         :association => :state_history_entries,
-        :match => [:id]
+        :self_transition_match => [:id]
       )
       validator.validate(@record)
 
@@ -214,7 +214,7 @@ class StateHistoryValidatorTest < ActiveSupport::TestCase
     should "be valid with :nil_end_in_middle allowed" do
       validator = StateHistoryValidator.new(
         :association => :state_history_entries,
-        :match => [:id],
+        :self_transition_match => [:id],
         :allow => [:nil_end_in_middle]
       )
       validator.validate(@record)
@@ -238,7 +238,7 @@ class StateHistoryValidatorTest < ActiveSupport::TestCase
     should "not be valid with nothing allowed" do
       validator = StateHistoryValidator.new(
         :association => :state_history_entries,
-        :match => [:id]
+        :self_transition_match => [:id]
       )
       validator.validate(@record)
 
@@ -248,7 +248,7 @@ class StateHistoryValidatorTest < ActiveSupport::TestCase
     should "be valid with :gaps allowed" do
       validator = StateHistoryValidator.new(
         :association => :state_history_entries,
-        :match => [:id],
+        :self_transition_match => [:id],
         :allow => [:gaps]
       )
       validator.validate(@record)
