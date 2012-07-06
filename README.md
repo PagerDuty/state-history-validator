@@ -51,7 +51,7 @@ Or install it yourself as:
 Let's say that we want to check the integrity of `:state_history_entries`.
 This is how we might call the validator:
 
-    validates_state_history :state_history_entries,
+    validate_state_history :state_history_entries,
       :self_transition_match => [:state_id],
       :allow => [:gaps]
 
@@ -64,9 +64,11 @@ Let's say we want to validate an entry, but we don't particularly care
 about zero-entries. In addition, our entry uses the attribute `:begin` to
 indicate its start time attribute. This is how we might use the validator:
 
-    validates_state_history_entry,
+    validate_state_history_entry
       :start => :begin
       :allow => [:zero_duration]
+
+Note that we omitted the comma after `validate_state_history_entry`.
 
 ### Interface
 With these examples in mind, here is the full documentation on every option
