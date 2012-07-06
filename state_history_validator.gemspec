@@ -5,7 +5,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["daniel@pagerduty.com"]
   gem.summary       = "State History and State History Entry Validators"
   gem.description   = "A gem that verifies the integrity of a state history"
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/PagerDuty/state-history-validator"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }

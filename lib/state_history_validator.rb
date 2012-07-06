@@ -1,6 +1,4 @@
 require 'active_model'
-require File.join(File.dirname(__FILE__), 'active_model', 'validations', 'helper_methods')
-:wa
 
 class StateHistoryValidator < ActiveModel::Validator
   def initialize(options = {})

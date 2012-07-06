@@ -1,4 +1,5 @@
 require 'test_helper'
+require 'state_history_entry_validator'
 
 class StateHistoryEntryValidatorTest < ActiveSupport::TestCase
   context "An \"perfect\" account state history entry" do

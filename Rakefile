@@ -1,10 +1,6 @@
 #!/usr/bin/env rake
 require "bundler/gem_tasks"
-require 'rake'
 require 'rake/testtask'
-require 'bundler'
-
-#require 'state_history_validator'
 
 desc 'Test'
 Rake::TestTask.new(:test) do |t|
