@@ -213,11 +213,11 @@ module ActiveModel
           assert @record.errors.any?
         end
 
-        should "be valid with :nil_end_in_middle allowed" do
+        should "be valid with :simultaneous allowed" do
           validator = StateHistoryValidator.new(
             :association => :state_history_entries,
             :self_transition_match => [:id],
-            :allow => [:nil_end_in_middle]
+            :allow => [:simultaneous]
           )
           validator.validate(@record)
 

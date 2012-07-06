@@ -44,7 +44,7 @@ module ActiveModel
             no_overlaps = no_overlaps?(this_entry, next_entry, record.errors)
           end
 
-          if !@allow.include? :nil_end_in_middle
+          if !@allow.include? :simultaneous
             no_nils = no_intervening_nils?(this_entry, record.errors)
           end
 
