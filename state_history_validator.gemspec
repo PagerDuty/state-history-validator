@@ -1,5 +1,4 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/state_history_validator/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ["Daniel Ge"]
@@ -13,5 +12,5 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.name          = "state_history_validator"
   gem.require_paths = ["lib"]
-  gem.version       = StateHistoryValidator::VERSION
+  gem.version       = "0.0.1"
 end
