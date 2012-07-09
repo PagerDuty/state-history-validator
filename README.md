@@ -72,6 +72,11 @@ indicate its start time attribute. This is how we might use the validator:
 
 Note that we omitted the comma after `validate_state_history_entry`.
 
+The StateHistoryEntryValidator requires that the receiving class validate
+for the presence of the `:start` attribute. The `validate_state_history_entry`
+construct, which is the recommended way to call this validator, performs this
+validation automatically.
+
 ### Interface
 With these examples in mind, here is the full documentation on every option
 that can be toggled.
