@@ -59,7 +59,7 @@ module ActiveModel
       def last_end_nil?(history, errors)
         last = history.last
 
-        if last[@end] != nil
+        if !last[@end].nil?
           errors[:base] << "no nil ending"
           return false
         end

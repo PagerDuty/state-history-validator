@@ -1,5 +1,7 @@
 # StateHistoryValidator
 
+**Current version:** 0.0.1
+
 The StateHistoryValidator gem is a collection of two Validators that aid in
 verifying the integrity of a state history association. As defined here, a
 state history is a collection of entries, each with start and end time
