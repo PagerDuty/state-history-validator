@@ -50,8 +50,6 @@ module ActiveModel
 
           return unless no_self_trans && no_gaps && no_overlaps && no_nils
         end
-
-        return
       end
 
       private

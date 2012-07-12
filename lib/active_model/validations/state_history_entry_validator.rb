@@ -26,10 +26,8 @@ module ActiveModel
         _end  = record[@end]
         if start == _end
           record.errors[:base] << "Start time (#{start}) is equal to end (#{_end})"
-          return false
+          return
         end
-
-        true
       end
 
       def start_before_end?(record)
@@ -37,10 +35,8 @@ module ActiveModel
         _end  = record[@end]
         if !_end.blank? && start > _end
           record.errors[:base] << "Start time (#{start}) is later than end time (#{_end})"
-          return false
+          return
         end
-
-        true
       end
     end
 
