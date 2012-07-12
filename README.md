@@ -106,9 +106,13 @@ The issues that can be specified are:
     * `:self_transitions` -- Ignore two consecutive equal states. As a side
     note, two equal states separated by a gap are not considered to be in
     self-transition.
-    * `:simultaneous` -- Ignore entries whose end attributes are `nil`, which
-    indicates that the entry has not ended yet. This excludes the final state.
-    * `:last_end_not_nil` -- Ignore the last entry not ending with a `nil`
+    * `:active_middle_states` -- Ignore the presence of an active state in the
+    middle of a state history. An active state is defined by the state's `:end`
+    attribute being `nil`.
+    This excludes the final state.
+    * `:inactive_end_state` -- Ignore the lack of a final active ending state.
+    Using our earlier definition, this means that the last entry does not have
+    `nil` as the value of its `:end` attribute.
 
 #### StateHistoryEntryValidator
 * `:start` -- (default = `:start`) Specifies the attribute referring to the

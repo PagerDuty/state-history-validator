@@ -22,7 +22,7 @@ module ActiveModel
 
         return if sorted_history.blank?
 
-        if !@allow.include? :last_end_not_nil
+        if !@allow.include? :inactive_end_state
           valid = last_end_nil?(sorted_history, record.errors)
           return unless valid
         end
@@ -44,7 +44,7 @@ module ActiveModel
             no_overlaps = no_overlaps?(this_entry, next_entry, record.errors)
           end
 
-          if !@allow.include? :simultaneous
+          if !@allow.include? :active_middle_states
             no_nils = no_intervening_nils?(this_entry, record.errors)
           end
 

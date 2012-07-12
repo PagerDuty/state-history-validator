@@ -116,11 +116,11 @@ module ActiveModel
           assert @record.errors.any?
         end
 
-        should "be valid with :last_end_not_nil allowed" do
+        should "be valid with :inactive_end_state allowed" do
           validator = StateHistoryValidator.new(
             :association => :state_history_entries,
             :self_transition_match => [:id],
-            :allow => [:last_end_not_nil]
+            :allow => [:inactive_end_state]
           )
           validator.validate(@record)
 
@@ -213,11 +213,11 @@ module ActiveModel
           assert @record.errors.any?
         end
 
-        should "be valid with :simultaneous allowed" do
+        should "be valid with :active_middle_states allowed" do
           validator = StateHistoryValidator.new(
             :association => :state_history_entries,
             :self_transition_match => [:id],
-            :allow => [:simultaneous]
+            :allow => [:active_middle_states]
           )
           validator.validate(@record)
 
