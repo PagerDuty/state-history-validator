@@ -35,7 +35,7 @@ checks.
 
 Add this line to your application's Gemfile:
 
-    gem 'state_history_validator'
+    gem 'state_history_validator', :github => "PagerDuty/state-history-validator", :tag => '0.0.3'
 
 And then execute:
 
@@ -43,6 +43,8 @@ And then execute:
 
 Or install it yourself as:
 
+    $ git clone git://github.com/PagerDuty/state-history-validator.git
+    $ gem build state_history_validator.gemspec
     $ gem install state_history_validator
 
 ## Usage
