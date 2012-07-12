@@ -10,12 +10,12 @@ module ActiveModel
         end
 
         should "be valid by default with no checks disabled" do
-          mock_entry = ValidatableEntry.new(@now, @now + 1.days)
+          entry = ValidatableEntry.new(@now, @now + 1.days)
 
           validator = StateHistoryEntryValidator.new
-          validator.validate(mock_entry)
+          validator.validate(entry)
 
-          assert !mock_entry.errors.any?
+          assert !entry.errors.any?
         end
 
         should "be valid if :start and :end are changed" do
@@ -23,70 +23,70 @@ module ActiveModel
           MockEntry.class_eval do
             include ActiveModel::Validations
           end
-          mock_entry = MockEntry.new(@now, @now + 1.days)
+          entry = MockEntry.new(@now, @now + 1.days)
 
           validator = StateHistoryEntryValidator.new(
             :start => :begin,
             :end => :finish
           )
-          validator.validate(mock_entry)
+          validator.validate(entry)
 
-          assert !mock_entry.errors.any?
+          assert !entry.errors.any?
         end
 
         should "be valid even if the end is nil" do
-          mock_entry = ValidatableEntry.new(@now, nil)
+          entry = ValidatableEntry.new(@now, nil)
 
           validator = StateHistoryEntryValidator.new
-          validator.validate(mock_entry)
+          validator.validate(entry)
 
-          assert !mock_entry.errors.any?
+          assert !entry.errors.any?
         end
       end
 
       context "An account state history entry where start == end" do
         setup do
           @now = DateTime.new(2011, 2, 3, 5, 8, 13)
-          @mock_entry = ValidatableEntry.new(@now, @now)
+          @entry = ValidatableEntry.new(@now, @now)
         end
 
         should "not be valid with no checks disabled" do
           validator = StateHistoryEntryValidator.new
-          validator.validate(@mock_entry)
+          validator.validate(@entry)
 
-          assert @mock_entry.errors.any?
+          assert @entry.errors.any?
         end
 
         should "be valid with :zero_duration allowed" do
           validator = StateHistoryEntryValidator.new(
             :allow => [:zero_duration]
           )
-          validator.validate(@mock_entry)
+          validator.validate(@entry)
 
-          assert !@mock_entry.errors.any?
+          assert !@entry.errors.any?
         end
       end
 
       context "An account state history entry where start > end" do
         setup do
           @now = DateTime.new(2011, 2, 3, 5, 8, 13)
-          @mock_entry = ValidatableEntry.new(@now + 1.days, @now)
+          @entry = ValidatableEntry.new(@now + 1.days, @now)
         end
 
         should "not be valid with no checks disabled" do
           validator = StateHistoryEntryValidator.new
-          validator.validate(@mock_entry)
+          validator.validate(@entry)
 
-          assert @mock_entry.errors.any?
+          assert @entry.errors.any?
         end
 
         should "be valid with :end_before_start allowed" do
           validator = StateHistoryEntryValidator.new(
             :allow => [:end_before_start]
           )
-          validator.validate(@mock_entry)
+          validator.validate(@entry)
 
-          assert !@mock_entry.errors.any?
+          assert !@entry.errors.any?
         end
       end
 
