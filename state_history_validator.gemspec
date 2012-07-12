@@ -14,4 +14,8 @@ Gem::Specification.new do |gem|
   gem.name          = "state_history_validator"
   gem.require_paths = ["lib"]
   gem.version       = "0.0.3"
+
+  # Dependencies
+  gem.add_dependency "activemodel", ">= 3.0.0"
+  gem.add_dependency "activesupport", ">= 3.0.0"
 end
