@@ -1,5 +1,3 @@
-require 'active_model/validations'
-
 module ActiveModel
   module Validations
 
@@ -113,9 +111,6 @@ module ActiveModel
         true
       end
 
-    end
-
-    module HelperMethods
     end
 
   end
