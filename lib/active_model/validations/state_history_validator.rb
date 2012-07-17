@@ -1,5 +1,3 @@
-require 'active_model/validations'
-
 module ActiveModel
   module Validations
 
@@ -113,14 +111,6 @@ module ActiveModel
         true
       end
 
-    end
-
-    module HelperMethods
-      def validate_state_history(association, options = {})
-        params = { :association => association }
-        params.merge!(options)
-        validates_with StateHistoryValidator, params
-      end
     end
 
   end

@@ -1,5 +1,3 @@
-require 'active_model/validations'
-
 module ActiveModel
   module Validations
 
@@ -35,15 +33,6 @@ module ActiveModel
         if !_end.blank? && start > _end
           record.errors[:base] << "Start time (#{start}) is later than end time (#{_end})"
         end
-      end
-    end
-
-    module HelperMethods
-      def validate_state_history_entry(options = {})
-        start_attr = options[:start] || :start
-        validates start_attr, :presence => true
-
-        validates_with StateHistoryEntryValidator, options
       end
     end
 
