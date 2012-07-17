@@ -38,14 +38,5 @@ module ActiveModel
       end
     end
 
-    module HelperMethods
-      def validate_state_history_entry(options = {})
-        start_attr = options[:start] || :start
-        validates start_attr, :presence => true
-
-        validates_with StateHistoryEntryValidator, options
-      end
-    end
-
   end
 end
