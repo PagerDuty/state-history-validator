@@ -15,7 +15,7 @@ module ActiveModel
       end
 
       def validate(record)
-        entries = record[@association]
+        entries = record.send(@association)
         sorted_history = entries.order(@order)
 
         return if sorted_history.blank?
