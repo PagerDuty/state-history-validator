@@ -15,7 +15,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.name          = "state_validations"
   gem.require_paths = ["lib"]
-  gem.version       = "0.1.2"
+  gem.version       = "0.2.0"
 
   # Dependencies
   gem.add_runtime_dependency "activemodel", ">= 3.0.0"

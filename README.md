@@ -1,8 +1,8 @@
-# StateHistoryValidator
+# StateValidations
 
-**Current version:** 0.1.2
+**Current version:** 0.2.0
 
-The StateHistoryValidator gem is a collection of two Validators that aid in
+The StateValidations gem is a collection of two Validators that aid in
 verifying the integrity of a state history association. As defined here, a
 state history is a collection of entries, each with start and end time
 attributes.
@@ -20,7 +20,7 @@ the entry's end time is `nil`)
 is `nil`)
 
 The user of this validator can disable any combination of these checks as he or
-she wishes.
+she wishes through the `:allow` option.
 
 The other validator provided is the StateHistoryEntryValidator. This Validator
 examines each state history entry on its own, checking for these issues:
@@ -35,7 +35,7 @@ checks.
 
 Add this line to your application's Gemfile:
 
-    gem 'state_history_validator', :github => "PagerDuty/state-history-validator", :tag => '0.0.3'
+    gem 'state_validations'
 
 And then execute:
 
@@ -44,8 +44,8 @@ And then execute:
 Or install it yourself as:
 
     $ git clone git://github.com/PagerDuty/state-history-validator.git
-    $ gem build state_history_validator.gemspec
-    $ gem install state_history_validator
+    $ rake build
+    $ gem install pkg/state_validations-(version).gem
 
 ## Usage
 
