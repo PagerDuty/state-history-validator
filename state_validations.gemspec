@@ -1,4 +1,6 @@
 # -*- encoding: utf-8 -*-
+
+# Note to self: the module file in lib/ needs to have the same name as this file
 $:.push File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |gem|
@@ -11,7 +13,7 @@ Gem::Specification.new do |gem|
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
-  gem.name          = "state-validations"
+  gem.name          = "state_validations"
   gem.require_paths = ["lib"]
   gem.version       = "0.1.2"
 

@@ -5,4 +5,4 @@ require 'mocha/integration/test_unit'
 require 'active_support/core_ext'
 require 'active_model'
 
-require 'state_history_validator'
+require 'state_validations'
