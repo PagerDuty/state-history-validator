@@ -1,3 +1,6 @@
+# Deprecated
+This repository is no longer maintained.
+
 # StateValidations
 
 **Current version:** 0.2.0
